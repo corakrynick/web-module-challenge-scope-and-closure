@@ -27,9 +27,14 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ 
+ //counter1 is block scoped
+ //counter2 is global scoped
+  
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ 
+ // counter1 uses a closure,  
+
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
 */
@@ -56,10 +61,9 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  let score = Math.floor(Math.random()*3)
+  return score;
 }
 
 /* Task 3: finalScore()
@@ -76,11 +80,15 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(funct, num){
+  let final = {"Home": 0, "Away": 0};
+  for(let i = 0; i < num; i++){
+    final.Home += funct();
+    final.Away += funct();
+  }
+   return final;
 }
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +111,13 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inning, num) {
+  var scores = Math.floor(3* Math.random());
+  for(let i = 0; i <inning.length; i++){
+  inning();
+  }
+  return scores;
 }
+console.log(scoreboard(inning, 9));
 
 
